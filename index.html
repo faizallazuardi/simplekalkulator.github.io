@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      .container {
+        width: 300px;
+        height: 500px;
+        background-color: aqua;
+        border: 3px solid rgb(0, 0, 0);
+        box-sizing: border-box;
+        border-top-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.5);
+      }
+
+      #layar {
+        font-size: 3em;
+        text-align: end;
+        line-height: 70px;
+        padding: 5px;
+        width: 260px;
+        height: 70px;
+        background-color: white;
+        margin: 20px auto;
+        border-radius: 5px;
+        box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.5), inset 2px 2px 2px rgba(0, 0, 0, 0.5);
+      }
+
+      .button {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .button .clear {
+        width: 170px;
+        background-color: red;
+        color: white;
+      }
+
+      .button #equal {
+        width: 70px;
+        background-color: gold;
+      }
+
+      .button span {
+        margin: 10px;
+        width: 50px;
+        height: 50px;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 5px;
+        box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5), inset 2px 2px 2px rgba(0, 0, 0, 0.5);
+        cursor: pointer;
+      }
+
+      .button .satu {
+        background-color: grey;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="layar"></div>
+      <div class="button">
+        <span class="clear">Clear</span>
+        <span id="equal">=</span>
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <span class="satu">+</span>
+        <span>4</span>
+        <span>5</span>
+        <span>6</span>
+        <span class="satu">-</span>
+        <span>7</span>
+        <span>8</span>
+        <span>9</span>
+        <span class="satu">*</span>
+        <span>0</span>
+        <span>00</span>
+        <span>.</span>
+        <span class="satu">/</span>
+      </div>
+    </div>
+
+    <script>
+      let button = document.querySelector(".button");
+      let btn = document.querySelectorAll("span");
+      let layar = document.getElementById("layar");
+
+      for (let i = 0; i < btn.length; i++) {
+        btn[i].addEventListener("click", function () {
+          if (this.innerHTML == "=") {
+            layar.innerHTML = eval(layar.innerHTML);
+          } else {
+            if (this.innerHTML == "Clear") {
+              layar.innerHTML = "";
+            } else {
+              layar.innerHTML += this.innerHTML;
+            }
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
